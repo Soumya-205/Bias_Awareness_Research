@@ -1,0 +1,897 @@
+{
+  "dataset": "propublica_data_for_fairml.csv",
+  "outcome_column": "Two_yr_Recidivism",
+  "sensitive_column": "African_American",
+  "n_rows": 6172,
+  "n_features": 11,
+  "alpha": 1.0,
+  "threshold_method": "adaptive_percentile",
+  "percentile": 90,
+  "mitigation_method": "splitting",
+  "timestamp": "2026-09-01 15:43:34",
+  "rawness": {
+    "rawness_score": 0.6921,
+    "feature_mi": {
+      "Number_of_Priors": 0.0427,
+      "score_factor": 0.0503,
+      "Age_Above_FourtyFive": 0.01,
+      "Age_Below_TwentyFive": 0.0061,
+      "African_American": 0.0099,
+      "Asian": 0.0004,
+      "Hispanic": 0.0013,
+      "Native_American": 0.0,
+      "Other": 0.0011,
+      "Female": 0.0052,
+      "Misdemeanor": 0.0073
+    },
+    "feature_weights": {
+      "Number_of_Priors": 0.3183,
+      "score_factor": 0.3744,
+      "Age_Above_FourtyFive": 0.0741,
+      "Age_Below_TwentyFive": 0.0458,
+      "African_American": 0.0739,
+      "Asian": 0.0031,
+      "Hispanic": 0.0096,
+      "Native_American": 0.0,
+      "Other": 0.0079,
+      "Female": 0.0385,
+      "Misdemeanor": 0.0544
+    },
+    "top_features": [
+      [
+        "score_factor",
+        0.0503
+      ],
+      [
+        "Number_of_Priors",
+        0.0427
+      ],
+      [
+        "Age_Above_FourtyFive",
+        0.01
+      ],
+      [
+        "African_American",
+        0.0099
+      ],
+      [
+        "Misdemeanor",
+        0.0073
+      ]
+    ],
+    "interpretation": "MODERATE -- some shortcut features present"
+  },
+  "legitimacy_tests": {
+    "Number_of_Priors": {
+      "feature": "Number_of_Priors",
+      "is_legitimate": false,
+      "failure_reasons": [
+        "Low unique signal: accuracy gain = 0.001"
+      ],
+      "proxy_detection": {
+        "passed": true,
+        "score": 0.0778,
+        "proxy_of": null,
+        "threshold": 0.5
+      },
+      "conditional_influence": {
+        "passed": false,
+        "score": 0.001,
+        "acc_with": 0.6601,
+        "acc_without": 0.6591,
+        "threshold": 0.02
+      },
+      "outcome_independence": {
+        "passed": true,
+        "score": -0.0094,
+        "disparity_with": 0.0566,
+        "disparity_without": 0.066,
+        "groups_compared": [
+          "0",
+          "1"
+        ]
+      }
+    },
+    "score_factor": {
+      "feature": "score_factor",
+      "is_legitimate": false,
+      "failure_reasons": [
+        "Low unique signal: accuracy gain = 0.0044",
+        "Drives group disparity: score = 0.2421"
+      ],
+      "proxy_detection": {
+        "passed": true,
+        "score": 0.091,
+        "proxy_of": null,
+        "threshold": 0.5
+      },
+      "conditional_influence": {
+        "passed": false,
+        "score": 0.0044,
+        "acc_with": 0.6601,
+        "acc_without": 0.6557,
+        "threshold": 0.02
+      },
+      "outcome_independence": {
+        "passed": false,
+        "score": 0.2421,
+        "disparity_with": 0.5782,
+        "disparity_without": 0.336,
+        "groups_compared": [
+          "0",
+          "1"
+        ]
+      }
+    }
+  },
+  "legitimate_features": [],
+  "abs_scores": {
+    "Number_of_Priors": {
+      "abs_score": 0.2599,
+      "signals": {
+        "neighborhood_inconsistency": 0.4077,
+        "dominance": 0.3189,
+        "cardinality": 0.0058,
+        "instability": 0.0
+      }
+    },
+    "score_factor": {
+      "abs_score": 0.2217,
+      "signals": {
+        "neighborhood_inconsistency": 0.4726,
+        "dominance": 0.1086,
+        "cardinality": 0.0003,
+        "instability": 0.0
+      }
+    },
+    "Age_Above_FourtyFive": {
+      "abs_score": 0.3716,
+      "signals": {
+        "neighborhood_inconsistency": 0.493,
+        "dominance": 0.581,
+        "cardinality": 0.0003,
+        "instability": 0.0
+      }
+    },
+    "Age_Below_TwentyFive": {
+      "abs_score": 0.3671,
+      "signals": {
+        "neighborhood_inconsistency": 0.495,
+        "dominance": 0.5635,
+        "cardinality": 0.0003,
+        "instability": 0.0
+      }
+    },
+    "African_American": {
+      "abs_score": 0.2059,
+      "signals": {
+        "neighborhood_inconsistency": 0.4931,
+        "dominance": 0.0288,
+        "cardinality": 0.0003,
+        "instability": 0.0
+      }
+    },
+    "Asian": {
+      "abs_score": 0.4962,
+      "signals": {
+        "neighborhood_inconsistency": 0.4978,
+        "dominance": 0.99,
+        "cardinality": 0.0003,
+        "instability": 0.0
+      }
+    },
+    "Hispanic": {
+      "abs_score": 0.4496,
+      "signals": {
+        "neighborhood_inconsistency": 0.4974,
+        "dominance": 0.8351,
+        "cardinality": 0.0003,
+        "instability": 0.0
+      }
+    },
+    "Native_American": {
+      "abs_score": 0.4982,
+      "signals": {
+        "neighborhood_inconsistency": 0.4981,
+        "dominance": 0.9964,
+        "cardinality": 0.0003,
+        "instability": 0.0
+      }
+    },
+    "Other": {
+      "abs_score": 0.4657,
+      "signals": {
+        "neighborhood_inconsistency": 0.4975,
+        "dominance": 0.8889,
+        "cardinality": 0.0003,
+        "instability": 0.0
+      }
+    },
+    "Female": {
+      "abs_score": 0.384,
+      "signals": {
+        "neighborhood_inconsistency": 0.4954,
+        "dominance": 0.6192,
+        "cardinality": 0.0003,
+        "instability": 0.0
+      }
+    },
+    "Misdemeanor": {
+      "abs_score": 0.2838,
+      "signals": {
+        "neighborhood_inconsistency": 0.4944,
+        "dominance": 0.2865,
+        "cardinality": 0.0003,
+        "instability": 0.0
+      }
+    }
+  },
+  "threshold": 0.4962,
+  "threshold_ceiling": 0.4962,
+  "flagged_features": [
+    "Native_American",
+    "score_factor"
+  ],
+  "flagged_via_abs": [
+    "Native_American"
+  ],
+  "flagged_via_disparity": [
+    "score_factor"
+  ],
+  "mitigation_log": {
+    "Native_American": "split into Native_American_frequency_bucket and Native_American_is_common",
+    "score_factor": "split into score_factor_frequency_bucket and score_factor_is_common"
+  },
+  "model_evaluation": {
+    "before": {
+      "RandomForest": {
+        "accuracy": 0.6631,
+        "auc_roc": 0.7007,
+        "fairness": {
+          "groups_compared": [
+            "1",
+            "0"
+          ],
+          "group_0_positive_rate": 0.5105,
+          "group_1_positive_rate": 0.2511,
+          "demographic_parity_gap": 0.2593,
+          "equalized_odds_tpr_gap": 0.2212,
+          "equalized_odds_fpr_gap": 0.2093
+        },
+        "feature_importances": {
+          "Number_of_Priors": 0.5052,
+          "score_factor": 0.1831,
+          "Age_Below_TwentyFive": 0.0598,
+          "Female": 0.0547,
+          "Misdemeanor": 0.053,
+          "Age_Above_FourtyFive": 0.0432,
+          "African_American": 0.0428,
+          "Hispanic": 0.0243,
+          "Other": 0.0223,
+          "Asian": 0.0077,
+          "Native_American": 0.0039
+        },
+        "top_features": [
+          [
+            "Number_of_Priors",
+            0.5052
+          ],
+          [
+            "score_factor",
+            0.1831
+          ],
+          [
+            "Age_Below_TwentyFive",
+            0.0598
+          ],
+          [
+            "Female",
+            0.0547
+          ],
+          [
+            "Misdemeanor",
+            0.053
+          ]
+        ]
+      },
+      "LogisticRegression": {
+        "accuracy": 0.6841,
+        "auc_roc": 0.7375,
+        "fairness": {
+          "groups_compared": [
+            "1",
+            "0"
+          ],
+          "group_0_positive_rate": 0.5178,
+          "group_1_positive_rate": 0.2422,
+          "demographic_parity_gap": 0.2756,
+          "equalized_odds_tpr_gap": 0.2684,
+          "equalized_odds_fpr_gap": 0.1885
+        },
+        "feature_importances": {
+          "Number_of_Priors": 0.3332,
+          "score_factor": 0.2034,
+          "Age_Below_TwentyFive": 0.1155,
+          "Age_Above_FourtyFive": 0.1064,
+          "Female": 0.0882,
+          "Misdemeanor": 0.0737,
+          "Hispanic": 0.0378,
+          "Asian": 0.027,
+          "African_American": 0.007,
+          "Other": 0.0047,
+          "Native_American": 0.003
+        },
+        "top_features": [
+          [
+            "Number_of_Priors",
+            0.3332
+          ],
+          [
+            "score_factor",
+            0.2034
+          ],
+          [
+            "Age_Below_TwentyFive",
+            0.1155
+          ],
+          [
+            "Age_Above_FourtyFive",
+            0.1064
+          ],
+          [
+            "Female",
+            0.0882
+          ]
+        ]
+      }
+    },
+    "after": {
+      "RandomForest": {
+        "accuracy": 0.6631,
+        "auc_roc": 0.7017,
+        "fairness": {
+          "groups_compared": [
+            "1",
+            "0"
+          ],
+          "group_0_positive_rate": 0.5084,
+          "group_1_positive_rate": 0.2489,
+          "demographic_parity_gap": 0.2595,
+          "equalized_odds_tpr_gap": 0.2223,
+          "equalized_odds_fpr_gap": 0.2088
+        },
+        "feature_importances": {
+          "Number_of_Priors": 0.4929,
+          "score_factor_is_common": 0.108,
+          "score_factor_frequency_bucket": 0.0978,
+          "Age_Below_TwentyFive": 0.0544,
+          "Female": 0.0542,
+          "Misdemeanor": 0.0524,
+          "Age_Above_FourtyFive": 0.0436,
+          "African_American": 0.0413,
+          "Hispanic": 0.0232,
+          "Other": 0.0221,
+          "Asian": 0.007,
+          "Native_American_is_common": 0.0016,
+          "Native_American_frequency_bucket": 0.0014
+        },
+        "top_features": [
+          [
+            "Number_of_Priors",
+            0.4929
+          ],
+          [
+            "score_factor_is_common",
+            0.108
+          ],
+          [
+            "score_factor_frequency_bucket",
+            0.0978
+          ],
+          [
+            "Age_Below_TwentyFive",
+            0.0544
+          ],
+          [
+            "Female",
+            0.0542
+          ]
+        ]
+      },
+      "LogisticRegression": {
+        "accuracy": 0.6841,
+        "auc_roc": 0.7376,
+        "fairness": {
+          "groups_compared": [
+            "1",
+            "0"
+          ],
+          "group_0_positive_rate": 0.5178,
+          "group_1_positive_rate": 0.2422,
+          "demographic_parity_gap": 0.2756,
+          "equalized_odds_tpr_gap": 0.2684,
+          "equalized_odds_fpr_gap": 0.1885
+        },
+        "feature_importances": {
+          "Number_of_Priors": 0.333,
+          "Age_Below_TwentyFive": 0.1156,
+          "Age_Above_FourtyFive": 0.1064,
+          "score_factor_frequency_bucket": 0.1018,
+          "score_factor_is_common": 0.1018,
+          "Female": 0.0882,
+          "Misdemeanor": 0.0736,
+          "Hispanic": 0.0377,
+          "Asian": 0.0269,
+          "African_American": 0.0069,
+          "Other": 0.0049,
+          "Native_American_frequency_bucket": 0.0015,
+          "Native_American_is_common": 0.0015
+        },
+        "top_features": [
+          [
+            "Number_of_Priors",
+            0.333
+          ],
+          [
+            "Age_Below_TwentyFive",
+            0.1156
+          ],
+          [
+            "Age_Above_FourtyFive",
+            0.1064
+          ],
+          [
+            "score_factor_frequency_bucket",
+            0.1018
+          ],
+          [
+            "score_factor_is_common",
+            0.1018
+          ]
+        ]
+      }
+    },
+    "comparison": {
+      "RandomForest": {
+        "accuracy_change": 0.0,
+        "dp_gap_change": 0.0002,
+        "tpr_gap_change": 0.0011,
+        "fpr_gap_change": -0.0005,
+        "flagged_removed_from_top": [
+          "score_factor"
+        ],
+        "interpretations": [
+          "Accuracy maintained.",
+          "Demographic Parity unchanged or worsened.",
+          "Equalized Odds TPR unchanged or worsened.",
+          "Flagged features dropped from top importance: ['score_factor']."
+        ],
+        "before": {
+          "accuracy": 0.6631,
+          "auc_roc": 0.7007,
+          "fairness": {
+            "groups_compared": [
+              "1",
+              "0"
+            ],
+            "group_0_positive_rate": 0.5105,
+            "group_1_positive_rate": 0.2511,
+            "demographic_parity_gap": 0.2593,
+            "equalized_odds_tpr_gap": 0.2212,
+            "equalized_odds_fpr_gap": 0.2093
+          },
+          "feature_importances": {
+            "Number_of_Priors": 0.5052,
+            "score_factor": 0.1831,
+            "Age_Below_TwentyFive": 0.0598,
+            "Female": 0.0547,
+            "Misdemeanor": 0.053,
+            "Age_Above_FourtyFive": 0.0432,
+            "African_American": 0.0428,
+            "Hispanic": 0.0243,
+            "Other": 0.0223,
+            "Asian": 0.0077,
+            "Native_American": 0.0039
+          },
+          "top_features": [
+            [
+              "Number_of_Priors",
+              0.5052
+            ],
+            [
+              "score_factor",
+              0.1831
+            ],
+            [
+              "Age_Below_TwentyFive",
+              0.0598
+            ],
+            [
+              "Female",
+              0.0547
+            ],
+            [
+              "Misdemeanor",
+              0.053
+            ]
+          ]
+        },
+        "after": {
+          "accuracy": 0.6631,
+          "auc_roc": 0.7017,
+          "fairness": {
+            "groups_compared": [
+              "1",
+              "0"
+            ],
+            "group_0_positive_rate": 0.5084,
+            "group_1_positive_rate": 0.2489,
+            "demographic_parity_gap": 0.2595,
+            "equalized_odds_tpr_gap": 0.2223,
+            "equalized_odds_fpr_gap": 0.2088
+          },
+          "feature_importances": {
+            "Number_of_Priors": 0.4929,
+            "score_factor_is_common": 0.108,
+            "score_factor_frequency_bucket": 0.0978,
+            "Age_Below_TwentyFive": 0.0544,
+            "Female": 0.0542,
+            "Misdemeanor": 0.0524,
+            "Age_Above_FourtyFive": 0.0436,
+            "African_American": 0.0413,
+            "Hispanic": 0.0232,
+            "Other": 0.0221,
+            "Asian": 0.007,
+            "Native_American_is_common": 0.0016,
+            "Native_American_frequency_bucket": 0.0014
+          },
+          "top_features": [
+            [
+              "Number_of_Priors",
+              0.4929
+            ],
+            [
+              "score_factor_is_common",
+              0.108
+            ],
+            [
+              "score_factor_frequency_bucket",
+              0.0978
+            ],
+            [
+              "Age_Below_TwentyFive",
+              0.0544
+            ],
+            [
+              "Female",
+              0.0542
+            ]
+          ]
+        }
+      },
+      "LogisticRegression": {
+        "accuracy_change": 0.0,
+        "dp_gap_change": 0.0,
+        "tpr_gap_change": 0.0,
+        "fpr_gap_change": 0.0,
+        "flagged_removed_from_top": [
+          "score_factor"
+        ],
+        "interpretations": [
+          "Accuracy maintained.",
+          "Demographic Parity unchanged or worsened.",
+          "Equalized Odds TPR unchanged or worsened.",
+          "Flagged features dropped from top importance: ['score_factor']."
+        ],
+        "before": {
+          "accuracy": 0.6841,
+          "auc_roc": 0.7375,
+          "fairness": {
+            "groups_compared": [
+              "1",
+              "0"
+            ],
+            "group_0_positive_rate": 0.5178,
+            "group_1_positive_rate": 0.2422,
+            "demographic_parity_gap": 0.2756,
+            "equalized_odds_tpr_gap": 0.2684,
+            "equalized_odds_fpr_gap": 0.1885
+          },
+          "feature_importances": {
+            "Number_of_Priors": 0.3332,
+            "score_factor": 0.2034,
+            "Age_Below_TwentyFive": 0.1155,
+            "Age_Above_FourtyFive": 0.1064,
+            "Female": 0.0882,
+            "Misdemeanor": 0.0737,
+            "Hispanic": 0.0378,
+            "Asian": 0.027,
+            "African_American": 0.007,
+            "Other": 0.0047,
+            "Native_American": 0.003
+          },
+          "top_features": [
+            [
+              "Number_of_Priors",
+              0.3332
+            ],
+            [
+              "score_factor",
+              0.2034
+            ],
+            [
+              "Age_Below_TwentyFive",
+              0.1155
+            ],
+            [
+              "Age_Above_FourtyFive",
+              0.1064
+            ],
+            [
+              "Female",
+              0.0882
+            ]
+          ]
+        },
+        "after": {
+          "accuracy": 0.6841,
+          "auc_roc": 0.7376,
+          "fairness": {
+            "groups_compared": [
+              "1",
+              "0"
+            ],
+            "group_0_positive_rate": 0.5178,
+            "group_1_positive_rate": 0.2422,
+            "demographic_parity_gap": 0.2756,
+            "equalized_odds_tpr_gap": 0.2684,
+            "equalized_odds_fpr_gap": 0.1885
+          },
+          "feature_importances": {
+            "Number_of_Priors": 0.333,
+            "Age_Below_TwentyFive": 0.1156,
+            "Age_Above_FourtyFive": 0.1064,
+            "score_factor_frequency_bucket": 0.1018,
+            "score_factor_is_common": 0.1018,
+            "Female": 0.0882,
+            "Misdemeanor": 0.0736,
+            "Hispanic": 0.0377,
+            "Asian": 0.0269,
+            "African_American": 0.0069,
+            "Other": 0.0049,
+            "Native_American_frequency_bucket": 0.0015,
+            "Native_American_is_common": 0.0015
+          },
+          "top_features": [
+            [
+              "Number_of_Priors",
+              0.333
+            ],
+            [
+              "Age_Below_TwentyFive",
+              0.1156
+            ],
+            [
+              "Age_Above_FourtyFive",
+              0.1064
+            ],
+            [
+              "score_factor_frequency_bucket",
+              0.1018
+            ],
+            [
+              "score_factor_is_common",
+              0.1018
+            ]
+          ]
+        }
+      }
+    },
+    "flagged_features": [
+      "Native_American",
+      "score_factor"
+    ]
+  },
+  "mitigation_comparison": {
+    "baseline": {
+      "accuracy": 0.6631,
+      "auc_roc": 0.7007,
+      "fairness": {
+        "groups_compared": [
+          "1",
+          "0"
+        ],
+        "group_0_positive_rate": 0.5105,
+        "group_1_positive_rate": 0.2511,
+        "demographic_parity_gap": 0.2593,
+        "equalized_odds_tpr_gap": 0.2212,
+        "equalized_odds_fpr_gap": 0.2093
+      },
+      "feature_importances": {
+        "Number_of_Priors": 0.5052,
+        "score_factor": 0.1831,
+        "Age_Below_TwentyFive": 0.0598,
+        "Female": 0.0547,
+        "Misdemeanor": 0.053,
+        "Age_Above_FourtyFive": 0.0432,
+        "African_American": 0.0428,
+        "Hispanic": 0.0243,
+        "Other": 0.0223,
+        "Asian": 0.0077,
+        "Native_American": 0.0039
+      },
+      "top_features": [
+        [
+          "Number_of_Priors",
+          0.5052
+        ],
+        [
+          "score_factor",
+          0.1831
+        ],
+        [
+          "Age_Below_TwentyFive",
+          0.0598
+        ],
+        [
+          "Female",
+          0.0547
+        ],
+        [
+          "Misdemeanor",
+          0.053
+        ]
+      ]
+    },
+    "splitting": {
+      "accuracy": 0.6631,
+      "auc_roc": 0.7017,
+      "fairness": {
+        "groups_compared": [
+          "1",
+          "0"
+        ],
+        "group_0_positive_rate": 0.5084,
+        "group_1_positive_rate": 0.2489,
+        "demographic_parity_gap": 0.2595,
+        "equalized_odds_tpr_gap": 0.2223,
+        "equalized_odds_fpr_gap": 0.2088
+      },
+      "feature_importances": {
+        "Number_of_Priors": 0.4929,
+        "score_factor_is_common": 0.108,
+        "score_factor_frequency_bucket": 0.0978,
+        "Age_Below_TwentyFive": 0.0544,
+        "Female": 0.0542,
+        "Misdemeanor": 0.0524,
+        "Age_Above_FourtyFive": 0.0436,
+        "African_American": 0.0413,
+        "Hispanic": 0.0232,
+        "Other": 0.0221,
+        "Asian": 0.007,
+        "Native_American_is_common": 0.0016,
+        "Native_American_frequency_bucket": 0.0014
+      },
+      "top_features": [
+        [
+          "Number_of_Priors",
+          0.4929
+        ],
+        [
+          "score_factor_is_common",
+          0.108
+        ],
+        [
+          "score_factor_frequency_bucket",
+          0.0978
+        ],
+        [
+          "Age_Below_TwentyFive",
+          0.0544
+        ],
+        [
+          "Female",
+          0.0542
+        ]
+      ]
+    },
+    "reweighting": {
+      "accuracy": 0.6614,
+      "auc_roc": 0.7009,
+      "fairness": {
+        "groups_compared": [
+          "1",
+          "0"
+        ],
+        "group_0_positive_rate": 0.5251,
+        "group_1_positive_rate": 0.2388,
+        "demographic_parity_gap": 0.2863,
+        "equalized_odds_tpr_gap": 0.261,
+        "equalized_odds_fpr_gap": 0.2281
+      },
+      "feature_importances": {
+        "Number_of_Priors": 0.5034,
+        "score_factor": 0.185,
+        "Age_Below_TwentyFive": 0.059,
+        "Misdemeanor": 0.0544,
+        "Female": 0.051,
+        "African_American": 0.0437,
+        "Age_Above_FourtyFive": 0.0433,
+        "Hispanic": 0.0242,
+        "Other": 0.0216,
+        "Asian": 0.0078,
+        "Native_American": 0.0067
+      },
+      "top_features": [
+        [
+          "Number_of_Priors",
+          0.5034
+        ],
+        [
+          "score_factor",
+          0.185
+        ],
+        [
+          "Age_Below_TwentyFive",
+          0.059
+        ],
+        [
+          "Misdemeanor",
+          0.0544
+        ],
+        [
+          "Female",
+          0.051
+        ]
+      ]
+    },
+    "suppression": {
+      "accuracy": 0.656,
+      "auc_roc": 0.6893,
+      "fairness": {
+        "groups_compared": [
+          "1",
+          "0"
+        ],
+        "group_0_positive_rate": 0.4644,
+        "group_1_positive_rate": 0.2321,
+        "demographic_parity_gap": 0.2323,
+        "equalized_odds_tpr_gap": 0.2731,
+        "equalized_odds_fpr_gap": 0.1232
+      },
+      "feature_importances": {
+        "Number_of_Priors": 0.6277,
+        "Age_Below_TwentyFive": 0.0816,
+        "Age_Above_FourtyFive": 0.0625,
+        "Female": 0.0588,
+        "Misdemeanor": 0.0575,
+        "African_American": 0.0496,
+        "Hispanic": 0.0262,
+        "Other": 0.0253,
+        "Asian": 0.0108
+      },
+      "top_features": [
+        [
+          "Number_of_Priors",
+          0.6277
+        ],
+        [
+          "Age_Below_TwentyFive",
+          0.0816
+        ],
+        [
+          "Age_Above_FourtyFive",
+          0.0625
+        ],
+        [
+          "Female",
+          0.0588
+        ],
+        [
+          "Misdemeanor",
+          0.0575
+        ]
+      ]
+    }
+  }
+}

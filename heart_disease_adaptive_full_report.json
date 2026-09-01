@@ -1,0 +1,1134 @@
+{
+  "dataset": "heart_disease.csv",
+  "outcome_column": "target",
+  "sensitive_column": "sex",
+  "n_rows": 303,
+  "n_features": 13,
+  "alpha": 1.0,
+  "threshold_method": "adaptive_percentile",
+  "percentile": 90,
+  "mitigation_method": "splitting",
+  "timestamp": "2026-09-01 15:43:06",
+  "rawness": {
+    "rawness_score": 0.7374,
+    "feature_mi": {
+      "age": 0.0503,
+      "sex": 0.041,
+      "cp": 0.1418,
+      "trestbps": 0.0152,
+      "chol": 0.0141,
+      "fbs": 0.0004,
+      "restecg": 0.0167,
+      "thalach": 0.1051,
+      "exang": 0.0986,
+      "oldpeak": 0.1162,
+      "slope": 0.081,
+      "ca": 0.1289,
+      "thal": 0.1478
+    },
+    "feature_weights": {
+      "age": 0.0526,
+      "sex": 0.0428,
+      "cp": 0.1482,
+      "trestbps": 0.0158,
+      "chol": 0.0147,
+      "fbs": 0.0004,
+      "restecg": 0.0174,
+      "thalach": 0.1098,
+      "exang": 0.103,
+      "oldpeak": 0.1214,
+      "slope": 0.0846,
+      "ca": 0.1347,
+      "thal": 0.1545
+    },
+    "top_features": [
+      [
+        "thal",
+        0.1478
+      ],
+      [
+        "cp",
+        0.1418
+      ],
+      [
+        "ca",
+        0.1289
+      ],
+      [
+        "oldpeak",
+        0.1162
+      ],
+      [
+        "thalach",
+        0.1051
+      ]
+    ],
+    "interpretation": "HIGH -- strong decision shortcuts detected"
+  },
+  "legitimacy_tests": {
+    "cp": {
+      "feature": "cp",
+      "is_legitimate": false,
+      "failure_reasons": [
+        "Proxy risk: MI with 'chol' = 0.6797",
+        "Drives group disparity: score = 0.1387"
+      ],
+      "proxy_detection": {
+        "passed": false,
+        "score": 0.6797,
+        "proxy_of": "chol",
+        "threshold": 0.5
+      },
+      "conditional_influence": {
+        "passed": true,
+        "score": 0.033,
+        "acc_with": 0.8284,
+        "acc_without": 0.7954,
+        "threshold": 0.02
+      },
+      "outcome_independence": {
+        "passed": false,
+        "score": 0.1387,
+        "disparity_with": 0.588,
+        "disparity_without": 0.4493,
+        "groups_compared": [
+          "0",
+          "2"
+        ]
+      }
+    },
+    "thalach": {
+      "feature": "thalach",
+      "is_legitimate": false,
+      "failure_reasons": [
+        "Proxy risk: MI with 'chol' = 1.2763",
+        "Low unique signal: accuracy gain = 0.0"
+      ],
+      "proxy_detection": {
+        "passed": false,
+        "score": 1.2763,
+        "proxy_of": "chol",
+        "threshold": 0.5
+      },
+      "conditional_influence": {
+        "passed": false,
+        "score": 0.0,
+        "acc_with": 0.8284,
+        "acc_without": 0.8284,
+        "threshold": 0.02
+      },
+      "outcome_independence": {
+        "passed": true,
+        "score": -0.1667,
+        "disparity_with": 0.1667,
+        "disparity_without": 0.3333,
+        "groups_compared": [
+          "162",
+          "163"
+        ]
+      }
+    },
+    "exang": {
+      "feature": "exang",
+      "is_legitimate": false,
+      "failure_reasons": [
+        "Low unique signal: accuracy gain = -0.0066",
+        "Drives group disparity: score = 0.0462"
+      ],
+      "proxy_detection": {
+        "passed": true,
+        "score": 0.3011,
+        "proxy_of": null,
+        "threshold": 0.5
+      },
+      "conditional_influence": {
+        "passed": false,
+        "score": -0.0066,
+        "acc_with": 0.8284,
+        "acc_without": 0.835,
+        "threshold": 0.02
+      },
+      "outcome_independence": {
+        "passed": false,
+        "score": 0.0462,
+        "disparity_with": 0.6385,
+        "disparity_without": 0.5923,
+        "groups_compared": [
+          "0",
+          "1"
+        ]
+      }
+    },
+    "oldpeak": {
+      "feature": "oldpeak",
+      "is_legitimate": false,
+      "failure_reasons": [
+        "Proxy risk: MI with 'chol' = 1.0143",
+        "Low unique signal: accuracy gain = 0.0198"
+      ],
+      "proxy_detection": {
+        "passed": false,
+        "score": 1.0143,
+        "proxy_of": "chol",
+        "threshold": 0.5
+      },
+      "conditional_influence": {
+        "passed": false,
+        "score": 0.0198,
+        "acc_with": 0.8284,
+        "acc_without": 0.8086,
+        "threshold": 0.02
+      },
+      "outcome_independence": {
+        "passed": true,
+        "score": -0.0643,
+        "disparity_with": 0.05,
+        "disparity_without": 0.1143,
+        "groups_compared": [
+          "0.0",
+          "1.2"
+        ]
+      }
+    },
+    "slope": {
+      "feature": "slope",
+      "is_legitimate": false,
+      "failure_reasons": [
+        "Drives group disparity: score = 0.152"
+      ],
+      "proxy_detection": {
+        "passed": true,
+        "score": 0.4833,
+        "proxy_of": null,
+        "threshold": 0.5
+      },
+      "conditional_influence": {
+        "passed": true,
+        "score": 0.0231,
+        "acc_with": 0.8284,
+        "acc_without": 0.8053,
+        "threshold": 0.02
+      },
+      "outcome_independence": {
+        "passed": false,
+        "score": 0.152,
+        "disparity_with": 0.388,
+        "disparity_without": 0.2359,
+        "groups_compared": [
+          "2",
+          "1"
+        ]
+      }
+    },
+    "ca": {
+      "feature": "ca",
+      "is_legitimate": false,
+      "failure_reasons": [
+        "Proxy risk: MI with 'chol' = 0.6933",
+        "Drives group disparity: score = 0.0814"
+      ],
+      "proxy_detection": {
+        "passed": false,
+        "score": 0.6933,
+        "proxy_of": "chol",
+        "threshold": 0.5
+      },
+      "conditional_influence": {
+        "passed": true,
+        "score": 0.0693,
+        "acc_with": 0.8284,
+        "acc_without": 0.7591,
+        "threshold": 0.02
+      },
+      "outcome_independence": {
+        "passed": false,
+        "score": 0.0814,
+        "disparity_with": 0.3172,
+        "disparity_without": 0.2358,
+        "groups_compared": [
+          "0",
+          "1"
+        ]
+      }
+    },
+    "thal": {
+      "feature": "thal",
+      "is_legitimate": false,
+      "failure_reasons": [
+        "Proxy risk: MI with 'chol' = 0.5636",
+        "Low unique signal: accuracy gain = 0.0165",
+        "Drives group disparity: score = 0.2037"
+      ],
+      "proxy_detection": {
+        "passed": false,
+        "score": 0.5636,
+        "proxy_of": "chol",
+        "threshold": 0.5
+      },
+      "conditional_influence": {
+        "passed": false,
+        "score": 0.0165,
+        "acc_with": 0.8284,
+        "acc_without": 0.8119,
+        "threshold": 0.02
+      },
+      "outcome_independence": {
+        "passed": false,
+        "score": 0.2037,
+        "disparity_with": 0.563,
+        "disparity_without": 0.3593,
+        "groups_compared": [
+          "2",
+          "3"
+        ]
+      }
+    }
+  },
+  "legitimate_features": [],
+  "abs_scores": {
+    "age": {
+      "abs_score": 0.1299,
+      "signals": {
+        "neighborhood_inconsistency": 0.2275,
+        "dominance": 0.0393,
+        "cardinality": 0.1353,
+        "instability": 0.0
+      }
+    },
+    "sex": {
+      "abs_score": 0.3027,
+      "signals": {
+        "neighborhood_inconsistency": 0.4786,
+        "dominance": 0.3663,
+        "cardinality": 0.0066,
+        "instability": 0.0
+      }
+    },
+    "cp": {
+      "abs_score": 0.2625,
+      "signals": {
+        "neighborhood_inconsistency": 0.4277,
+        "dominance": 0.2959,
+        "cardinality": 0.0132,
+        "instability": 0.0
+      }
+    },
+    "trestbps": {
+      "abs_score": 0.1535,
+      "signals": {
+        "neighborhood_inconsistency": 0.225,
+        "dominance": 0.1038,
+        "cardinality": 0.1617,
+        "instability": 0.0
+      }
+    },
+    "chol": {
+      "abs_score": 0.272,
+      "signals": {
+        "neighborhood_inconsistency": 0.4192,
+        "dominance": 0.0133,
+        "cardinality": 0.5017,
+        "instability": 0.0
+      }
+    },
+    "fbs": {
+      "abs_score": 0.412,
+      "signals": {
+        "neighborhood_inconsistency": 0.4995,
+        "dominance": 0.703,
+        "cardinality": 0.0066,
+        "instability": 0.0
+      }
+    },
+    "restecg": {
+      "abs_score": 0.2746,
+      "signals": {
+        "neighborhood_inconsistency": 0.4921,
+        "dominance": 0.2525,
+        "cardinality": 0.0099,
+        "instability": 0.0
+      }
+    },
+    "thalach": {
+      "abs_score": 0.2041,
+      "signals": {
+        "neighborhood_inconsistency": 0.3409,
+        "dominance": 0.0256,
+        "cardinality": 0.3003,
+        "instability": 0.0
+      }
+    },
+    "exang": {
+      "abs_score": 0.2849,
+      "signals": {
+        "neighborhood_inconsistency": 0.4491,
+        "dominance": 0.3465,
+        "cardinality": 0.0066,
+        "instability": 0.0
+      }
+    },
+    "oldpeak": {
+      "abs_score": 0.1924,
+      "signals": {
+        "neighborhood_inconsistency": 0.1828,
+        "dominance": 0.3095,
+        "cardinality": 0.132,
+        "instability": 0.0
+      }
+    },
+    "slope": {
+      "abs_score": 0.2465,
+      "signals": {
+        "neighborhood_inconsistency": 0.459,
+        "dominance": 0.203,
+        "cardinality": 0.0099,
+        "instability": 0.0
+      }
+    },
+    "ca": {
+      "abs_score": 0.3189,
+      "signals": {
+        "neighborhood_inconsistency": 0.4351,
+        "dominance": 0.4719,
+        "cardinality": 0.0165,
+        "instability": 0.0
+      }
+    },
+    "thal": {
+      "abs_score": 0.2919,
+      "signals": {
+        "neighborhood_inconsistency": 0.4254,
+        "dominance": 0.3971,
+        "cardinality": 0.0132,
+        "instability": 0.0
+      }
+    }
+  },
+  "threshold": 0.3157,
+  "threshold_ceiling": 0.3157,
+  "flagged_features": [
+    "ca",
+    "cp",
+    "exang",
+    "fbs",
+    "slope",
+    "thal"
+  ],
+  "flagged_via_abs": [
+    "fbs",
+    "ca"
+  ],
+  "flagged_via_disparity": [
+    "cp",
+    "exang",
+    "slope",
+    "ca",
+    "thal"
+  ],
+  "mitigation_log": {
+    "ca": "split into ca_frequency_bucket and ca_is_common",
+    "cp": "split into cp_frequency_bucket and cp_is_common",
+    "exang": "split into exang_frequency_bucket and exang_is_common",
+    "fbs": "split into fbs_frequency_bucket and fbs_is_common",
+    "slope": "split into slope_frequency_bucket and slope_is_common",
+    "thal": "split into thal_frequency_bucket and thal_is_common"
+  },
+  "model_evaluation": {
+    "before": {
+      "RandomForest": {
+        "accuracy": 0.7912,
+        "auc_roc": 0.868,
+        "fairness": {
+          "groups_compared": [
+            "1",
+            "0"
+          ],
+          "group_0_positive_rate": 0.4918,
+          "group_1_positive_rate": 0.7667,
+          "demographic_parity_gap": 0.2749,
+          "equalized_odds_tpr_gap": 0.0673,
+          "equalized_odds_fpr_gap": 0.0762
+        },
+        "feature_importances": {
+          "cp": 0.1565,
+          "oldpeak": 0.1327,
+          "thalach": 0.1234,
+          "thal": 0.1098,
+          "age": 0.0785,
+          "slope": 0.0751,
+          "trestbps": 0.0717,
+          "chol": 0.0717,
+          "ca": 0.0647,
+          "exang": 0.0608,
+          "sex": 0.0272,
+          "restecg": 0.0203,
+          "fbs": 0.0075
+        },
+        "top_features": [
+          [
+            "cp",
+            0.1565
+          ],
+          [
+            "oldpeak",
+            0.1327
+          ],
+          [
+            "thalach",
+            0.1234
+          ],
+          [
+            "thal",
+            0.1098
+          ],
+          [
+            "age",
+            0.0785
+          ]
+        ]
+      },
+      "LogisticRegression": {
+        "accuracy": 0.7582,
+        "auc_roc": 0.8639,
+        "fairness": {
+          "groups_compared": [
+            "1",
+            "0"
+          ],
+          "group_0_positive_rate": 0.5082,
+          "group_1_positive_rate": 0.7667,
+          "demographic_parity_gap": 0.2585,
+          "equalized_odds_tpr_gap": 0.1058,
+          "equalized_odds_fpr_gap": 0.019
+        },
+        "feature_importances": {
+          "cp": 0.1774,
+          "sex": 0.1241,
+          "oldpeak": 0.1057,
+          "thalach": 0.1032,
+          "ca": 0.1032,
+          "thal": 0.0989,
+          "chol": 0.0811,
+          "exang": 0.0799,
+          "slope": 0.0721,
+          "restecg": 0.0176,
+          "trestbps": 0.0156,
+          "fbs": 0.0129,
+          "age": 0.0083
+        },
+        "top_features": [
+          [
+            "cp",
+            0.1774
+          ],
+          [
+            "sex",
+            0.1241
+          ],
+          [
+            "oldpeak",
+            0.1057
+          ],
+          [
+            "thalach",
+            0.1032
+          ],
+          [
+            "ca",
+            0.1032
+          ]
+        ]
+      }
+    },
+    "after": {
+      "RandomForest": {
+        "accuracy": 0.7692,
+        "auc_roc": 0.8549,
+        "fairness": {
+          "groups_compared": [
+            "1",
+            "0"
+          ],
+          "group_0_positive_rate": 0.541,
+          "group_1_positive_rate": 0.7333,
+          "demographic_parity_gap": 0.1923,
+          "equalized_odds_tpr_gap": 0.0128,
+          "equalized_odds_fpr_gap": 0.019
+        },
+        "feature_importances": {
+          "oldpeak": 0.1359,
+          "thal_is_common": 0.1196,
+          "cp_is_common": 0.117,
+          "thalach": 0.0962,
+          "age": 0.0762,
+          "chol": 0.0733,
+          "trestbps": 0.0651,
+          "ca_is_common": 0.0532,
+          "exang_frequency_bucket": 0.0474,
+          "slope_frequency_bucket": 0.0458,
+          "exang_is_common": 0.0384,
+          "slope_is_common": 0.0357,
+          "sex": 0.0257,
+          "restecg": 0.019,
+          "cp_frequency_bucket": 0.0183,
+          "ca_frequency_bucket": 0.018,
+          "fbs_is_common": 0.0056,
+          "fbs_frequency_bucket": 0.0048,
+          "thal_frequency_bucket": 0.0048
+        },
+        "top_features": [
+          [
+            "oldpeak",
+            0.1359
+          ],
+          [
+            "thal_is_common",
+            0.1196
+          ],
+          [
+            "cp_is_common",
+            0.117
+          ],
+          [
+            "thalach",
+            0.0962
+          ],
+          [
+            "age",
+            0.0762
+          ]
+        ]
+      },
+      "LogisticRegression": {
+        "accuracy": 0.8022,
+        "auc_roc": 0.8873,
+        "fairness": {
+          "groups_compared": [
+            "1",
+            "0"
+          ],
+          "group_0_positive_rate": 0.4426,
+          "group_1_positive_rate": 0.7667,
+          "demographic_parity_gap": 0.324,
+          "equalized_odds_tpr_gap": 0.1058,
+          "equalized_odds_fpr_gap": 0.1333
+        },
+        "feature_importances": {
+          "cp_is_common": 0.1657,
+          "thal_is_common": 0.1308,
+          "ca_is_common": 0.1102,
+          "chol": 0.1087,
+          "sex": 0.0928,
+          "oldpeak": 0.0619,
+          "thalach": 0.0514,
+          "slope_frequency_bucket": 0.0467,
+          "slope_is_common": 0.0467,
+          "exang_frequency_bucket": 0.0352,
+          "exang_is_common": 0.0352,
+          "thal_frequency_bucket": 0.0231,
+          "ca_frequency_bucket": 0.0182,
+          "fbs_frequency_bucket": 0.0176,
+          "fbs_is_common": 0.0176,
+          "trestbps": 0.016,
+          "age": 0.0111,
+          "cp_frequency_bucket": 0.0072,
+          "restecg": 0.0039
+        },
+        "top_features": [
+          [
+            "cp_is_common",
+            0.1657
+          ],
+          [
+            "thal_is_common",
+            0.1308
+          ],
+          [
+            "ca_is_common",
+            0.1102
+          ],
+          [
+            "chol",
+            0.1087
+          ],
+          [
+            "sex",
+            0.0928
+          ]
+        ]
+      }
+    },
+    "comparison": {
+      "RandomForest": {
+        "accuracy_change": -0.022,
+        "dp_gap_change": -0.0826,
+        "tpr_gap_change": -0.0545,
+        "fpr_gap_change": -0.0572,
+        "flagged_removed_from_top": [
+          "cp",
+          "thal"
+        ],
+        "interpretations": [
+          "Accuracy dropped 2.2% -- fairness-accuracy tradeoff.",
+          "Demographic Parity IMPROVED (gap -0.0826).",
+          "Equalized Odds TPR IMPROVED (gap -0.0545).",
+          "Flagged features dropped from top importance: ['cp', 'thal']."
+        ],
+        "before": {
+          "accuracy": 0.7912,
+          "auc_roc": 0.868,
+          "fairness": {
+            "groups_compared": [
+              "1",
+              "0"
+            ],
+            "group_0_positive_rate": 0.4918,
+            "group_1_positive_rate": 0.7667,
+            "demographic_parity_gap": 0.2749,
+            "equalized_odds_tpr_gap": 0.0673,
+            "equalized_odds_fpr_gap": 0.0762
+          },
+          "feature_importances": {
+            "cp": 0.1565,
+            "oldpeak": 0.1327,
+            "thalach": 0.1234,
+            "thal": 0.1098,
+            "age": 0.0785,
+            "slope": 0.0751,
+            "trestbps": 0.0717,
+            "chol": 0.0717,
+            "ca": 0.0647,
+            "exang": 0.0608,
+            "sex": 0.0272,
+            "restecg": 0.0203,
+            "fbs": 0.0075
+          },
+          "top_features": [
+            [
+              "cp",
+              0.1565
+            ],
+            [
+              "oldpeak",
+              0.1327
+            ],
+            [
+              "thalach",
+              0.1234
+            ],
+            [
+              "thal",
+              0.1098
+            ],
+            [
+              "age",
+              0.0785
+            ]
+          ]
+        },
+        "after": {
+          "accuracy": 0.7692,
+          "auc_roc": 0.8549,
+          "fairness": {
+            "groups_compared": [
+              "1",
+              "0"
+            ],
+            "group_0_positive_rate": 0.541,
+            "group_1_positive_rate": 0.7333,
+            "demographic_parity_gap": 0.1923,
+            "equalized_odds_tpr_gap": 0.0128,
+            "equalized_odds_fpr_gap": 0.019
+          },
+          "feature_importances": {
+            "oldpeak": 0.1359,
+            "thal_is_common": 0.1196,
+            "cp_is_common": 0.117,
+            "thalach": 0.0962,
+            "age": 0.0762,
+            "chol": 0.0733,
+            "trestbps": 0.0651,
+            "ca_is_common": 0.0532,
+            "exang_frequency_bucket": 0.0474,
+            "slope_frequency_bucket": 0.0458,
+            "exang_is_common": 0.0384,
+            "slope_is_common": 0.0357,
+            "sex": 0.0257,
+            "restecg": 0.019,
+            "cp_frequency_bucket": 0.0183,
+            "ca_frequency_bucket": 0.018,
+            "fbs_is_common": 0.0056,
+            "fbs_frequency_bucket": 0.0048,
+            "thal_frequency_bucket": 0.0048
+          },
+          "top_features": [
+            [
+              "oldpeak",
+              0.1359
+            ],
+            [
+              "thal_is_common",
+              0.1196
+            ],
+            [
+              "cp_is_common",
+              0.117
+            ],
+            [
+              "thalach",
+              0.0962
+            ],
+            [
+              "age",
+              0.0762
+            ]
+          ]
+        }
+      },
+      "LogisticRegression": {
+        "accuracy_change": 0.044,
+        "dp_gap_change": 0.0655,
+        "tpr_gap_change": 0.0,
+        "fpr_gap_change": 0.1143,
+        "flagged_removed_from_top": [
+          "ca",
+          "cp"
+        ],
+        "interpretations": [
+          "Accuracy maintained.",
+          "Demographic Parity unchanged or worsened.",
+          "Equalized Odds TPR unchanged or worsened.",
+          "Flagged features dropped from top importance: ['ca', 'cp']."
+        ],
+        "before": {
+          "accuracy": 0.7582,
+          "auc_roc": 0.8639,
+          "fairness": {
+            "groups_compared": [
+              "1",
+              "0"
+            ],
+            "group_0_positive_rate": 0.5082,
+            "group_1_positive_rate": 0.7667,
+            "demographic_parity_gap": 0.2585,
+            "equalized_odds_tpr_gap": 0.1058,
+            "equalized_odds_fpr_gap": 0.019
+          },
+          "feature_importances": {
+            "cp": 0.1774,
+            "sex": 0.1241,
+            "oldpeak": 0.1057,
+            "thalach": 0.1032,
+            "ca": 0.1032,
+            "thal": 0.0989,
+            "chol": 0.0811,
+            "exang": 0.0799,
+            "slope": 0.0721,
+            "restecg": 0.0176,
+            "trestbps": 0.0156,
+            "fbs": 0.0129,
+            "age": 0.0083
+          },
+          "top_features": [
+            [
+              "cp",
+              0.1774
+            ],
+            [
+              "sex",
+              0.1241
+            ],
+            [
+              "oldpeak",
+              0.1057
+            ],
+            [
+              "thalach",
+              0.1032
+            ],
+            [
+              "ca",
+              0.1032
+            ]
+          ]
+        },
+        "after": {
+          "accuracy": 0.8022,
+          "auc_roc": 0.8873,
+          "fairness": {
+            "groups_compared": [
+              "1",
+              "0"
+            ],
+            "group_0_positive_rate": 0.4426,
+            "group_1_positive_rate": 0.7667,
+            "demographic_parity_gap": 0.324,
+            "equalized_odds_tpr_gap": 0.1058,
+            "equalized_odds_fpr_gap": 0.1333
+          },
+          "feature_importances": {
+            "cp_is_common": 0.1657,
+            "thal_is_common": 0.1308,
+            "ca_is_common": 0.1102,
+            "chol": 0.1087,
+            "sex": 0.0928,
+            "oldpeak": 0.0619,
+            "thalach": 0.0514,
+            "slope_frequency_bucket": 0.0467,
+            "slope_is_common": 0.0467,
+            "exang_frequency_bucket": 0.0352,
+            "exang_is_common": 0.0352,
+            "thal_frequency_bucket": 0.0231,
+            "ca_frequency_bucket": 0.0182,
+            "fbs_frequency_bucket": 0.0176,
+            "fbs_is_common": 0.0176,
+            "trestbps": 0.016,
+            "age": 0.0111,
+            "cp_frequency_bucket": 0.0072,
+            "restecg": 0.0039
+          },
+          "top_features": [
+            [
+              "cp_is_common",
+              0.1657
+            ],
+            [
+              "thal_is_common",
+              0.1308
+            ],
+            [
+              "ca_is_common",
+              0.1102
+            ],
+            [
+              "chol",
+              0.1087
+            ],
+            [
+              "sex",
+              0.0928
+            ]
+          ]
+        }
+      }
+    },
+    "flagged_features": [
+      "ca",
+      "cp",
+      "exang",
+      "fbs",
+      "slope",
+      "thal"
+    ]
+  },
+  "mitigation_comparison": {
+    "baseline": {
+      "accuracy": 0.7912,
+      "auc_roc": 0.868,
+      "fairness": {
+        "groups_compared": [
+          "1",
+          "0"
+        ],
+        "group_0_positive_rate": 0.4918,
+        "group_1_positive_rate": 0.7667,
+        "demographic_parity_gap": 0.2749,
+        "equalized_odds_tpr_gap": 0.0673,
+        "equalized_odds_fpr_gap": 0.0762
+      },
+      "feature_importances": {
+        "cp": 0.1565,
+        "oldpeak": 0.1327,
+        "thalach": 0.1234,
+        "thal": 0.1098,
+        "age": 0.0785,
+        "slope": 0.0751,
+        "trestbps": 0.0717,
+        "chol": 0.0717,
+        "ca": 0.0647,
+        "exang": 0.0608,
+        "sex": 0.0272,
+        "restecg": 0.0203,
+        "fbs": 0.0075
+      },
+      "top_features": [
+        [
+          "cp",
+          0.1565
+        ],
+        [
+          "oldpeak",
+          0.1327
+        ],
+        [
+          "thalach",
+          0.1234
+        ],
+        [
+          "thal",
+          0.1098
+        ],
+        [
+          "age",
+          0.0785
+        ]
+      ]
+    },
+    "splitting": {
+      "accuracy": 0.7692,
+      "auc_roc": 0.8549,
+      "fairness": {
+        "groups_compared": [
+          "1",
+          "0"
+        ],
+        "group_0_positive_rate": 0.541,
+        "group_1_positive_rate": 0.7333,
+        "demographic_parity_gap": 0.1923,
+        "equalized_odds_tpr_gap": 0.0128,
+        "equalized_odds_fpr_gap": 0.019
+      },
+      "feature_importances": {
+        "oldpeak": 0.1359,
+        "thal_is_common": 0.1196,
+        "cp_is_common": 0.117,
+        "thalach": 0.0962,
+        "age": 0.0762,
+        "chol": 0.0733,
+        "trestbps": 0.0651,
+        "ca_is_common": 0.0532,
+        "exang_frequency_bucket": 0.0474,
+        "slope_frequency_bucket": 0.0458,
+        "exang_is_common": 0.0384,
+        "slope_is_common": 0.0357,
+        "sex": 0.0257,
+        "restecg": 0.019,
+        "cp_frequency_bucket": 0.0183,
+        "ca_frequency_bucket": 0.018,
+        "fbs_is_common": 0.0056,
+        "fbs_frequency_bucket": 0.0048,
+        "thal_frequency_bucket": 0.0048
+      },
+      "top_features": [
+        [
+          "oldpeak",
+          0.1359
+        ],
+        [
+          "thal_is_common",
+          0.1196
+        ],
+        [
+          "cp_is_common",
+          0.117
+        ],
+        [
+          "thalach",
+          0.0962
+        ],
+        [
+          "age",
+          0.0762
+        ]
+      ]
+    },
+    "reweighting": {
+      "accuracy": 0.7802,
+      "auc_roc": 0.848,
+      "fairness": {
+        "groups_compared": [
+          "1",
+          "0"
+        ],
+        "group_0_positive_rate": 0.5246,
+        "group_1_positive_rate": 0.8,
+        "demographic_parity_gap": 0.2754,
+        "equalized_odds_tpr_gap": 0.109,
+        "equalized_odds_fpr_gap": 0.019
+      },
+      "feature_importances": {
+        "cp": 0.1775,
+        "oldpeak": 0.1273,
+        "thal": 0.1168,
+        "thalach": 0.1094,
+        "trestbps": 0.0835,
+        "age": 0.0788,
+        "chol": 0.0708,
+        "exang": 0.0676,
+        "ca": 0.0663,
+        "slope": 0.0513,
+        "sex": 0.0259,
+        "restecg": 0.0179,
+        "fbs": 0.0068
+      },
+      "top_features": [
+        [
+          "cp",
+          0.1775
+        ],
+        [
+          "oldpeak",
+          0.1273
+        ],
+        [
+          "thal",
+          0.1168
+        ],
+        [
+          "thalach",
+          0.1094
+        ],
+        [
+          "trestbps",
+          0.0835
+        ]
+      ]
+    },
+    "suppression": {
+      "accuracy": 0.7473,
+      "auc_roc": 0.7915,
+      "fairness": {
+        "groups_compared": [
+          "1",
+          "0"
+        ],
+        "group_0_positive_rate": 0.4918,
+        "group_1_positive_rate": 0.7667,
+        "demographic_parity_gap": 0.2749,
+        "equalized_odds_tpr_gap": 0.1442,
+        "equalized_odds_fpr_gap": 0.019
+      },
+      "feature_importances": {
+        "oldpeak": 0.2474,
+        "thalach": 0.2248,
+        "age": 0.161,
+        "chol": 0.1514,
+        "trestbps": 0.1373,
+        "sex": 0.0513,
+        "restecg": 0.0267
+      },
+      "top_features": [
+        [
+          "oldpeak",
+          0.2474
+        ],
+        [
+          "thalach",
+          0.2248
+        ],
+        [
+          "age",
+          0.161
+        ],
+        [
+          "chol",
+          0.1514
+        ],
+        [
+          "trestbps",
+          0.1373
+        ]
+      ]
+    }
+  }
+}
