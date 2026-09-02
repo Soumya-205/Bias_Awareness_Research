@@ -44,7 +44,7 @@ flowchart TD
     Eval --> Compare["Step 9 — Compare all 3 methods<br/>report the best per dataset"]
     Compare --> Out(["Reports + Charts"])
 
-    classDef fixed fill:#d4edda,stroke:#28a745,stroke-width:2px
+    classDef fixed fill:#28a745,stroke:#1e7e34,stroke-width:2px,color:#ffffff
     class Threshold,ABS,FlagList fixed
 ```
 
